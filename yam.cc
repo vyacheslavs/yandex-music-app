@@ -74,8 +74,8 @@ int main(int argc, char** argv) {
 
     webview::webview w(true, window);
 
-    w.set_title("Yandex Music");
-    w.navigate("https://passport.yandex.com/auth?origin=music_button-header&retpath=https%3A%2F%2Fmusic.yandex.com%2Fhome");
+    w.set_title("WhatsApp");
+    w.navigate("https://web.whatsapp.com");
     w.run();
     return 0;
 }

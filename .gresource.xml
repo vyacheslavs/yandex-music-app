@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
     <gresource prefix="/com/example/mytest">
-        <file alias="icon">cloud.png</file>
+        <file alias="icon">w.png</file>
     </gresource>
 </gresources>
