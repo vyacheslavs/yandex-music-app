@@ -1,6 +1,6 @@
 // main.cc
 #include <gtk/gtk.h>
-#include "webview.h"
+#include "webview/webview.h"
 #include <libappindicator/app-indicator.h>
 
 extern const guint8 tray_icon[];
