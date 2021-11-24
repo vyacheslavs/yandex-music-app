@@ -49,35 +49,33 @@ int main(int argc, char** argv) {
     app_indicator_set_icon(indicator, "/tmp/yandex-music-icon.png");
 
 
-   GtkWidget *menu = NULL;
-   GtkWidget *item = NULL;
+    GtkWidget *menu = NULL;
+    GtkWidget *item = NULL;
 
-   menu = gtk_menu_new ();
+    menu = gtk_menu_new ();
 
-        item = gtk_menu_item_new_with_label ("Show");
-        gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
+    item = gtk_menu_item_new_with_label ("Show");
+    gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
 
-        g_signal_connect (item, "activate",
-                    G_CALLBACK (show_clicked_cb), reinterpret_cast<gpointer>(window));
+    g_signal_connect (item, "activate",
+        G_CALLBACK (show_clicked_cb), reinterpret_cast<gpointer>(window));
 
-        gtk_widget_show (item);
+    gtk_widget_show (item);
 
+    item = gtk_menu_item_new_with_label ("Exit");
+    gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
 
-        item = gtk_menu_item_new_with_label ("Exit");
-        gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
+    g_signal_connect (item, "activate",
+        G_CALLBACK (exit_clicked_cb), reinterpret_cast<gpointer>(window));
 
-        g_signal_connect (item, "activate",
-                    G_CALLBACK (exit_clicked_cb), reinterpret_cast<gpointer>(window));
+    gtk_widget_show (item);
 
-        gtk_widget_show (item);
+    app_indicator_set_menu (indicator, GTK_MENU (menu));
 
+    webview::webview w(true, window);
 
-  app_indicator_set_menu (indicator, GTK_MENU (menu));
-
-  webview::webview w(true, window);
-
-  w.set_title("Yandex Music");
-  w.navigate("https://passport.yandex.com/auth?origin=music_button-header&retpath=https%3A%2F%2Fmusic.yandex.com%2Fhome");
-  w.run();
-  return 0;
+    w.set_title("Yandex Music");
+    w.navigate("https://passport.yandex.com/auth?origin=music_button-header&retpath=https%3A%2F%2Fmusic.yandex.com%2Fhome");
+    w.run();
+    return 0;
 }
