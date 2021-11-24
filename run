@@ -1,3 +1,3 @@
 glib-compile-resources .gresource.xml --generate-source --target=icon.c
 
-c++ icon.c test.cc `pkg-config --cflags --libs gtk+-3.0 webkit2gtk-4.0` `pkg-config --cflags --libs appindicator3-0.1` -o yandex-music-app
+c++ icon.c yam.cc `pkg-config --cflags --libs gtk+-3.0 webkit2gtk-4.0` `pkg-config --cflags --libs appindicator3-0.1` -o yandex-music-app
